@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wine Cultivar Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #5c67f2;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #4a54e1;
+        }
+        .result {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Wine Cultivar Prediction</h2>
+
+    <form method="POST">
+        <input type="number" step="any" name="alcohol" placeholder="Alcohol" required>
+        <input type="number" step="any" name="malic_acid" placeholder="Malic Acid" required>
+        <input type="number" step="any" name="alcalinity_of_ash" placeholder="Alcalinity of Ash" required>
+        <input type="number" step="any" name="total_phenols" placeholder="Total Phenols" required>
+        <input type="number" step="any" name="flavanoids" placeholder="Flavanoids" required>
+        <input type="number" step="any" name="proline" placeholder="Proline" required>
+
+        <input type="submit" value="Predict Cultivar">
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            Predicted Wine Origin: {{ prediction }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
